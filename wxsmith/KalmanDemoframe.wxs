@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="KalmanDemoFrame">
-		<title>KalmanDemo</title>
+		<title>KalmanDemo V1.0</title>
+		<bg>wxSYS_COLOUR_WINDOW</bg>
 		<id_arg>0</id_arg>
 		<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
 			<cols>1</cols>

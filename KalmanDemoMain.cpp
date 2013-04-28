@@ -84,7 +84,7 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     wxFlexGridSizer* FlexGridSizer1;
     wxMenu* Menu2;
 
-    Create(parent, wxID_ANY, _("KalmanDemo"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("KalmanDemo V1.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
     FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -156,6 +156,7 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
 
     wxCommandEvent event;
     OnButton_runClick(event);
+    StatusBar1->SetStatusText("Sun Yat-sen University   by Xionghao Liu  Email: lxiongh@126.com  4/28/2013");
 }
 
 KalmanDemoFrame::~KalmanDemoFrame()
