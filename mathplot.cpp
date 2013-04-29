@@ -1212,7 +1212,7 @@ mpWindow::mpWindow( wxWindow *parent, wxWindowID id, const wxPoint &pos, const w
 mpWindow::~mpWindow()
 {
 	// Free all the layers:
-	DelAllLayers( true, false );
+	//DelAllLayers( true, false );
 
     if (m_buff_bmp)
     {
