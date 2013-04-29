@@ -11,7 +11,6 @@
 #include <wx/msgdlg.h>
 
 //(*InternalHeaders(KalmanDemoFrame)
-#include <wx/settings.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -84,8 +83,7 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     wxFlexGridSizer* FlexGridSizer1;
     wxMenu* Menu2;
 
-    Create(parent, wxID_ANY, _("KalmanDemo V1.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-    SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
+    Create(parent, wxID_ANY, _("KalmanDemo"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
     Panel_kalman = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxSize(330,218), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
@@ -156,7 +154,6 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
 
     wxCommandEvent event;
     OnButton_runClick(event);
-    StatusBar1->SetStatusText("Sun Yat-sen University   by Xionghao Liu  Email: lxiongh@126.com  4/28/2013");
 }
 
 KalmanDemoFrame::~KalmanDemoFrame()
@@ -227,36 +224,40 @@ void KalmanDemoFrame::OnButton_runClick(wxCommandEvent& event)
         pos_id.push_back(i);
     }
     //-------------------------------------------
-    double pos_x = 75;//Panel_kalman->GetSize().GetWidth()-5;
-    double pos_y = 90;//Panel_kalman->GetSize().GetHeight()-5;
+    //double pos_x = 75;//Panel_kalman->GetSize().GetWidth()-5;
+    //double pos_y = 90;//Panel_kalman->GetSize().GetHeight()-5;
 
+    mpInfoLegend* leg1 = new mpInfoLegend(wxRect(250,150,40,40), wxTRANSPARENT_BRUSH);
     mpWindow* m_plot = new mpWindow(Panel_kalman, -1, wxPoint(0,0), Panel_kalman->GetSize(), wxSUNKEN_BORDER );
+
     wxPen vectorpen(*wxBLUE,3,wxSOLID);
+    Draw(m_plot, vectorpen, "meas", leg1, meas_x, meas_y, false);
 
-    Draw(m_plot, vectorpen, new mpText(wxT("meas(blue)"),pos_x, pos_y-5), meas_x, meas_y, false);
     vectorpen.SetColour(*wxRED);
+    Draw(m_plot, vectorpen, "kalman", leg1, kalman_kx, kalman_ky, false);
 
-    Draw(m_plot, vectorpen, new mpText(wxT("kalman(red)"),pos_x, pos_y-10), kalman_kx, kalman_ky, false);
     vectorpen.SetColour(*wxBLACK);
-    Draw(m_plot, vectorpen, new mpText(wxT("ideal(black)"),pos_x, pos_y), ideal_x, ideal_y, false);
+    Draw(m_plot, vectorpen, "ideal", leg1, ideal_x, ideal_y, false);
 
     mpWindow* m_plot_err = new mpWindow(Panel_error, -1, wxPoint(0,0), Panel_error->GetSize(), wxSUNKEN_BORDER );
+    mpInfoLegend* leg2 = new mpInfoLegend(wxRect(100,0,40,40), wxTRANSPARENT_BRUSH);
+
     vectorpen.SetColour(*wxBLUE);
-    pos_x = 65; pos_y = 0;
-    Draw(m_plot_err, vectorpen, new mpText(wxT("meas_error(blue)"),pos_x, pos_y), pos_id, error_meas_pos, false);
+    Draw(m_plot_err, vectorpen, "meas_error", leg2, pos_id, error_meas_pos, false);
+
     vectorpen.SetColour(*wxRED);
-    Draw(m_plot_err, vectorpen, new mpText(wxT("kalman_error(red)"),pos_x, pos_y+5), pos_id, error_kalman_pos, false);
+    Draw(m_plot_err, vectorpen, "kalman_error", leg2, pos_id, error_kalman_pos, false);
 }
 
-void KalmanDemoFrame::Draw(mpWindow* m_plot, wxPen vectorpen, mpText* mp_text, vector<double>& xs, vector<double>& ys, bool isContinuity)
+void KalmanDemoFrame::Draw(mpWindow* m_plot, wxPen vectorpen, string name, mpInfoLegend* leg, vector<double>& xs, vector<double>& ys, bool isContinuity)
 {
-    mpFXYVector* vectorLayer = new mpFXYVector();
+    mpFXYVector* vectorLayer = new mpFXYVector(name);
     vectorLayer->SetData(xs,ys);
     vectorLayer->SetContinuity(isContinuity);
 	vectorLayer->SetPen(vectorpen);
 	vectorLayer->SetDrawOutsideMargins(false);
 
-    mp_text->SetPen(vectorpen);
+    //mp_text->SetPen(vectorpen);
 
     mpScaleX* xaxis = new mpScaleX(wxT("X"), mpALIGN_BOTTOM, true, mpX_NORMAL);
     mpScaleY* yaxis = new mpScaleY(wxT("Y"), mpALIGN_LEFT, true);
@@ -264,7 +265,11 @@ void KalmanDemoFrame::Draw(mpWindow* m_plot, wxPen vectorpen, mpText* mp_text, v
     m_plot->AddLayer(xaxis);
     m_plot->AddLayer(yaxis);
     m_plot->AddLayer(vectorLayer);
-    m_plot->AddLayer(mp_text);
+    //m_plot->AddLayer(mp_text);
+
+    //mpInfoLegend* leg;
+    m_plot->AddLayer(leg); //&hatch2));
+    leg->SetVisible(true);
 
     m_plot->EnableDoubleBuffer(true);
     //m_plot->SetMPScrollbars(false);

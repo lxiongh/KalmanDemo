@@ -24,6 +24,7 @@
 #include <wx/dc.h>
 #include <wx/dcclient.h>
 #include "mathplot.h"
+
 #include "GpsPath.h"
 #include "Kalman2D.h"
 
@@ -42,7 +43,7 @@ class KalmanDemoFrame: public wxFrame
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
         void OnButton_runClick(wxCommandEvent& event);
-        void Draw(mpWindow* m_plot, wxPen vectorpen, mpText* mp_text, vector<double>& xs, vector<double>& ys, bool isContinuity);
+        void Draw(mpWindow* m_plot, wxPen vectorpen, string name, mpInfoLegend* leg, vector<double>& xs, vector<double>& ys, bool isContinuity);
         //*)
 
         //(*Identifiers(KalmanDemoFrame)
