@@ -11,6 +11,7 @@
 #include <wx/msgdlg.h>
 
 //(*InternalHeaders(KalmanDemoFrame)
+#include <wx/settings.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -83,7 +84,8 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     wxFlexGridSizer* FlexGridSizer1;
     wxMenu* Menu2;
 
-    Create(parent, wxID_ANY, _("KalmanDemo"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("KalmanDemo V1.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
     FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
     Panel_kalman = new wxPanel(this, ID_PANEL1, wxDefaultPosition, wxSize(330,218), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
@@ -169,8 +171,9 @@ void KalmanDemoFrame::OnQuit(wxCommandEvent& event)
 
 void KalmanDemoFrame::OnAbout(wxCommandEvent& event)
 {
-    wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, _("Welcome to..."));
+    //wxString msg = wxbuildinfo(long_f);
+    wxString msg = "By: 刘雄浩       学号: 12212894";
+    wxMessageBox(msg, _("关于"));
 }
 
 void KalmanDemoFrame::OnButton_runClick(wxCommandEvent& event)
@@ -247,6 +250,8 @@ void KalmanDemoFrame::OnButton_runClick(wxCommandEvent& event)
 
     vectorpen.SetColour(*wxRED);
     Draw(m_plot_err, vectorpen, "kalman_error", leg2, pos_id, error_kalman_pos, false);
+
+    StatusBar1->SetStatusText("By: 刘雄浩       学号: 12212894");
 }
 
 void KalmanDemoFrame::Draw(mpWindow* m_plot, wxPen vectorpen, string name, mpInfoLegend* leg, vector<double>& xs, vector<double>& ys, bool isContinuity)
