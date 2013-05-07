@@ -27,6 +27,7 @@
 
 #include "GpsPath.h"
 #include "Kalman2D.h"
+#include <sstream>
 
 using namespace std;
 
@@ -46,9 +47,16 @@ class KalmanDemoFrame: public wxFrame
         void Draw(mpWindow* m_plot, wxPen vectorpen, string name, mpInfoLegend* leg, vector<double>& xs, vector<double>& ys, bool isContinuity);
         //*)
 
+        double RMSE(vector<double> vec);
+
         //(*Identifiers(KalmanDemoFrame)
         static const long ID_PANEL1;
         static const long ID_PANEL2;
+        static const long ID_PANEL3;
+        static const long ID_PANEL4;
+        static const long ID_PANEL5;
+        static const long ID_PANEL6;
+        static const long ID_TEXTCTRL8;
         static const long ID_STATICTEXT7;
         static const long ID_TEXTCTRL7;
         static const long ID_STATICTEXT1;
@@ -70,13 +78,18 @@ class KalmanDemoFrame: public wxFrame
         //*)
 
         //(*Declarations(KalmanDemoFrame)
+        wxPanel* Panel_x;
         wxStaticText* StaticText2;
         wxStaticText* StaticText6;
         wxTextCtrl* TextCtrl_seed;
         wxPanel* Panel_kalman;
         wxStaticText* StaticText1;
+        wxPanel* Panel_yv;
+        wxPanel* Panel_xv;
         wxStaticText* StaticText3;
+        wxPanel* Panel_y;
         wxTextCtrl* TextCtrl_qx_v;
+        wxTextCtrl* TextCtrl_result;
         wxTextCtrl* TextCtrl_qa;
         wxStaticText* StaticText5;
         wxStaticText* StaticText7;

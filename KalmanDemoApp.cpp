@@ -23,9 +23,9 @@ bool KalmanDemoApp::OnInit()
     wxInitAllImageHandlers();
     if ( wxsOK )
     {
-    	KalmanDemoFrame* Frame = new KalmanDemoFrame(0);
-    	Frame->Show();
-    	SetTopWindow(Frame);
+        KalmanDemoFrame* Frame = new KalmanDemoFrame(0);
+        Frame->Show();
+        SetTopWindow(Frame);
     }
     //*)
     return wxsOK;
