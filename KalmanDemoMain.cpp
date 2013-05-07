@@ -12,8 +12,8 @@
 
 //(*InternalHeaders(KalmanDemoFrame)
 #include <wx/settings.h>
-#include <wx/intl.h>
 #include <wx/string.h>
+#include <wx/intl.h>
 //*)
 
 //helper functions
@@ -80,20 +80,20 @@ END_EVENT_TABLE()
 KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
 {
     //(*Initialize(KalmanDemoFrame)
-    wxBoxSizer* BoxSizer4;
     wxMenuItem* MenuItem2;
-    wxFlexGridSizer* FlexGridSizer3;
     wxMenuItem* MenuItem1;
+    wxFlexGridSizer* FlexGridSizer1;
     wxFlexGridSizer* FlexGridSizer2;
-    wxBoxSizer* BoxSizer2;
+    wxBoxSizer* BoxSizer3;
     wxMenu* Menu1;
+    wxBoxSizer* BoxSizer2;
+    wxFlexGridSizer* FlexGridSizer3;
+    wxBoxSizer* BoxSizer4;
     wxBoxSizer* BoxSizer1;
     wxMenuBar* MenuBar1;
-    wxFlexGridSizer* FlexGridSizer1;
-    wxBoxSizer* BoxSizer3;
     wxMenu* Menu2;
-
-    Create(parent, wxID_ANY, _("KalmanDemo V1.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    
+    Create(parent, wxID_ANY, _("KalmanDemo V2.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
     FlexGridSizer1 = new wxFlexGridSizer(0, 1, 0, 0);
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -130,11 +130,11 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     FlexGridSizer3->Add(TextCtrl_qx, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("qx_v"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
     FlexGridSizer3->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl_qx_v = new wxTextCtrl(this, ID_TEXTCTRL6, _("0.5"), wxDefaultPosition, wxSize(27,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL6"));
+    TextCtrl_qx_v = new wxTextCtrl(this, ID_TEXTCTRL6, _("0.5"), wxDefaultPosition, wxSize(37,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL6"));
     FlexGridSizer3->Add(TextCtrl_qx_v, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("r"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
     FlexGridSizer3->Add(StaticText3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl_r = new wxTextCtrl(this, ID_TEXTCTRL2, _("0.1"), wxDefaultPosition, wxSize(28,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+    TextCtrl_r = new wxTextCtrl(this, ID_TEXTCTRL2, _("0.01"), wxDefaultPosition, wxSize(36,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
     FlexGridSizer3->Add(TextCtrl_r, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText4 = new wxStaticText(this, ID_STATICTEXT4, _("qv"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
     FlexGridSizer3->Add(StaticText4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -142,11 +142,11 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     FlexGridSizer3->Add(TextCtrl_qv, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText5 = new wxStaticText(this, ID_STATICTEXT5, _("qa"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT5"));
     FlexGridSizer3->Add(StaticText5, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl_qa = new wxTextCtrl(this, ID_TEXTCTRL4, _("0.1"), wxDefaultPosition, wxSize(27,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL4"));
+    TextCtrl_qa = new wxTextCtrl(this, ID_TEXTCTRL4, _("0.1"), wxDefaultPosition, wxSize(36,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL4"));
     FlexGridSizer3->Add(TextCtrl_qa, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText6 = new wxStaticText(this, ID_STATICTEXT6, _("ra"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT6"));
     FlexGridSizer3->Add(StaticText6, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrl_ra = new wxTextCtrl(this, ID_TEXTCTRL5, _("0.1"), wxDefaultPosition, wxSize(30,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
+    TextCtrl_ra = new wxTextCtrl(this, ID_TEXTCTRL5, _("0.01"), wxDefaultPosition, wxSize(38,22), 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
     FlexGridSizer3->Add(TextCtrl_ra, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     FlexGridSizer2->Add(FlexGridSizer3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Button_run = new wxButton(this, ID_BUTTON1, _("Run"), wxDefaultPosition, wxSize(42,24), 0, wxDefaultValidator, _T("ID_BUTTON1"));
@@ -171,7 +171,7 @@ KalmanDemoFrame::KalmanDemoFrame(wxWindow* parent,wxWindowID id)
     SetStatusBar(StatusBar1);
     FlexGridSizer1->Fit(this);
     FlexGridSizer1->SetSizeHints(this);
-
+    
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&KalmanDemoFrame::OnButton_runClick);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&KalmanDemoFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&KalmanDemoFrame::OnAbout);

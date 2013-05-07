@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="KalmanDemoFrame">
-		<title>KalmanDemo V1.0</title>
+		<title>KalmanDemo V2.0</title>
 		<bg>wxSYS_COLOUR_WINDOW</bg>
 		<id_arg>0</id_arg>
 		<object class="wxFlexGridSizer" variable="FlexGridSizer1" member="no">
@@ -143,7 +143,7 @@
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextCtrl_qx_v" member="yes">
 									<value>0.5</value>
-									<size>27,22</size>
+									<size>37,22</size>
 								</object>
 								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>
@@ -159,8 +159,8 @@
 							</object>
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl_r" member="yes">
-									<value>0.1</value>
-									<size>28,22</size>
+									<value>0.01</value>
+									<size>36,22</size>
 								</object>
 								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>
@@ -194,7 +194,7 @@
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="TextCtrl_qa" member="yes">
 									<value>0.1</value>
-									<size>27,22</size>
+									<size>36,22</size>
 								</object>
 								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>
@@ -210,8 +210,8 @@
 							</object>
 							<object class="sizeritem">
 								<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrl_ra" member="yes">
-									<value>0.1</value>
-									<size>30,22</size>
+									<value>0.01</value>
+									<size>38,22</size>
 								</object>
 								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 								<border>5</border>

@@ -12,13 +12,13 @@
 
 //(*Headers(KalmanDemoFrame)
 #include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/menu.h>
-#include <wx/textctrl.h>
-#include <wx/panel.h>
 #include <wx/button.h>
-#include <wx/frame.h>
+#include <wx/menu.h>
+#include <wx/panel.h>
 #include <wx/statusbr.h>
+#include <wx/frame.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
 //*)
 
 #include <wx/dc.h>
@@ -78,29 +78,29 @@ class KalmanDemoFrame: public wxFrame
         //*)
 
         //(*Declarations(KalmanDemoFrame)
-        wxPanel* Panel_x;
-        wxStaticText* StaticText2;
-        wxStaticText* StaticText6;
         wxTextCtrl* TextCtrl_seed;
-        wxPanel* Panel_kalman;
-        wxStaticText* StaticText1;
-        wxPanel* Panel_yv;
         wxPanel* Panel_xv;
+        wxStatusBar* StatusBar1;
+        wxPanel* Panel_error;
+        wxTextCtrl* TextCtrl_result;
+        wxPanel* Panel_kalman;
+        wxTextCtrl* TextCtrl_ra;
+        wxStaticText* StaticText1;
+        wxTextCtrl* TextCtrl_qx_v;
         wxStaticText* StaticText3;
         wxPanel* Panel_y;
-        wxTextCtrl* TextCtrl_qx_v;
-        wxTextCtrl* TextCtrl_result;
-        wxTextCtrl* TextCtrl_qa;
-        wxStaticText* StaticText5;
-        wxStaticText* StaticText7;
-        wxButton* Button_run;
-        wxTextCtrl* TextCtrl_qv;
-        wxStatusBar* StatusBar1;
-        wxTextCtrl* TextCtrl_r;
-        wxPanel* Panel_error;
+        wxPanel* Panel_yv;
         wxTextCtrl* TextCtrl_qx;
+        wxTextCtrl* TextCtrl_qv;
+        wxStaticText* StaticText7;
         wxStaticText* StaticText4;
-        wxTextCtrl* TextCtrl_ra;
+        wxStaticText* StaticText5;
+        wxStaticText* StaticText2;
+        wxTextCtrl* TextCtrl_qa;
+        wxStaticText* StaticText6;
+        wxTextCtrl* TextCtrl_r;
+        wxPanel* Panel_x;
+        wxButton* Button_run;
         //*)
 
         DECLARE_EVENT_TABLE()
